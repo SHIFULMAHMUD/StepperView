@@ -1,38 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <RelativeLayout
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/stepperlayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="50dp">
 
-        <TextView
-            android:id="@+id/text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="hello"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/step0"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/step1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/text"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="36dp"
-            android:src="@android:drawable/arrow_down_float" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_below="@+id/imageView1"
-            android:background="@android:color/holo_blue_bright"
-            android:layout_height="1000sp">
-            <EditText
+            <TextView
+                android:id="@+id/stepperText0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Subscription"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/subscriptionView"
                 android:layout_width="match_parent"
-                android:layout_height="100sp"
-                android:id="@+id/email"
-                />
-        </LinearLayout>
+                android:layout_height="5dp"
+                app:layout_constraintBottom_toBottomOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </RelativeLayout>
-</ScrollView>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/step1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/step2"
+            app:layout_constraintStart_toEndOf="@+id/step0"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/stepperText1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Information"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/informationView"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                app:layout_constraintBottom_toBottomOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/step2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/step1"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/stepperText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Transaction"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/transactionView"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                app:layout_constraintBottom_toBottomOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/viewHolder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/view0"
+            layout="@layout/steper_view_0"
+            android:visibility="gone" />
+
+        <include
+            android:id="@+id/view1"
+            layout="@layout/steper_view_1"
+            android:visibility="gone" />
+
+        <include
+            android:id="@+id/view2"
+            layout="@layout/steper_view_2"
+            android:visibility="gone" />
+    </LinearLayout>
+</LinearLayout>

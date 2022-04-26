@@ -10,12 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StepperView">
         <activity
-            android:name=".simpleMobileStepper"
-            android:exported="false" />
-        <activity
-            android:name=".progressMobileStepper"
-            android:exported="false" />
-        <activity
             android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
